@@ -4,13 +4,13 @@
 NAME = phoneBook
 
 # Compiler to be used
-CC = c++
+CXX= c++
 
 # Compiler flags
-CFLAGS = -Werror -Wextra -Wall -std=c++98
+CXXFLAGS = -Werror -Wextra -Wall -std=c++98
 
 # Include paths (commented out in this case)
-INC = #-I ./inc/
+INC = -I ./inc/
 
 # Source directory
 SRC_PATH = src/
@@ -31,11 +31,11 @@ all: $(NAME)
 
 # Rule to build the executable
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 # Rule to compile each source file into an object file
 $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp | $(OBJ_PATH)
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@ 
+	$(CXX) $(CXXFLAGS) $(INC) -c $< -o $@ 
 
 # Rule to create the object directory if it doesn't exist
 $(OBJ_PATH):

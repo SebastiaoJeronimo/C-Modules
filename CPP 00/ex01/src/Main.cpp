@@ -15,7 +15,7 @@ int main ()
         case SEARCH:
             searchContactTable(PhoneBook);
             break;
-        default :
+        default:
             unsupportedCommand();
             break;
         }
@@ -42,7 +42,7 @@ void addContact(PhoneBook &PhoneBook) //NOT HAVE EMPTY FIELDS
 int getCommand()
 {
     std::string commandString;
-    std::cout << "Please choose a command\n";
+    std::cout << "Please choose a command:\n";
     std::getline(std::cin, commandString); //manda o que esta no input para a variavel commandString
     if (commandString == ADD_STR)
         return ADD;
@@ -81,7 +81,7 @@ void searchContactTable(PhoneBook &PhoneBook)
         Contact contact = PhoneBook.getContact(i);
         std::stringstream ss; // to convert int to string
         std::string indexString;
-        ss << i;
+        ss << i+1;
         ss >>indexString;
         buildAndPrintLine(indexString, contact.getFirstName(), contact.getLastName(), contact.getNickname());
     }
@@ -96,25 +96,32 @@ void buildAndPrintLine(std::string str1, std::string str2, std::string str3, std
 }
  
 std::string cropInfo(std::string info) {
+       int begin = info.find_first_not_of(" \t");
+       int end = info.find_last_not_of(" \t");
+       if (begin == (int) std::string::npos)
+            info = " "; //so pq sim
+       else info.substr(begin, end);
        if (info.length() > 10)
               return info.substr(0, 9) + ".";
        int numSpaces = 10 - info.length(); //num space chars to add 
+       std::string str = "";
        for(int i = 0; i<numSpaces; i++)
-              info += " ";
-       return info;
+              str += " ";
+       return str+info;
 }
 
 void displayContact(PhoneBook &PhoneBook)
 {
-    int index;
+    std::string strindex;
     std::cout << "Enter the index of the contact you want to display\n";
-    std::cin >> index;
-    if (index < 0 || index >= PhoneBook.getCounter())
+    std::cin >> strindex;
+    int index = atoi(strindex.c_str()); 
+    if (index <= 0 || index > PhoneBook.getCounter()) //counter a 0 erro atoi de ahifehf
     {
         std::cout << "Invalid index\n";
         return;
     }
-    Contact contact = PhoneBook.getContact(index);
+    Contact contact = PhoneBook.getContact(index-1);
     std::cout << "First name: " << contact.getFirstName() << "\n";
     std::cout << "Last name: " << contact.getLastName() << "\n";
     std::cout << "Nick name: " << contact.getNickname() << "\n";

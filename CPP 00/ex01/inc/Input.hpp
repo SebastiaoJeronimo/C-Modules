@@ -14,6 +14,7 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <sstream>
+#include <stdlib.h> 
 
 void displayContact(PhoneBook &PhoneBook);
 std::string cropInfo(std::string info);

@@ -14,7 +14,7 @@ void PhoneBook::addContact(std::string &fistName, std::string &lastName,
           counter++;
      }
      else
-     {
+     { //mudar esta cena
           for(int i = 7; i > 0; i--)
                this->contacts[i] = this->contacts[i - 1];
           this->contacts[0] = Contact(fistName, lastName, nickname, phoneNumber, darkestSecret);

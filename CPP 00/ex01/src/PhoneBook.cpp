@@ -1,5 +1,7 @@
 #include "PhoneBook.hpp"
 
+PhoneBook::~PhoneBook(){}
+
 PhoneBook::PhoneBook(){
      this->counter = 0;
 }

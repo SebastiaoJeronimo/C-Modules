@@ -1,5 +1,7 @@
 #include "Contact.hpp"
 
+Contact::~Contact(){}
+
 Contact::Contact(){
        this->firstName = "";
        this->lastName = "";

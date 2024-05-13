@@ -23,7 +23,14 @@ int main ()
     }
 }
 
-void addContact(PhoneBook &PhoneBook) //NOT HAVE EMPTY FIELDS
+/**
+ *  int begin = info.find_first_not_of(" \t");
+       int end = info.find_last_not_of(" \t");
+       if (begin == (int) std::string::npos)
+            info = " "; //so pq sim
+       else info.substr(begin, end); 
+ */
+void addContact(PhoneBook &PhoneBook) //NOT HAVE EMPTY FIELDS 
 {
     std::string firstName, lastName , nickName, phoneNumber, darkestSecret;
     std::cout << "Enter the first name\n";

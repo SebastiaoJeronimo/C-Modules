@@ -5,6 +5,7 @@
 #include <iostream>
 #define ZOMBIE_MSG "BraiiiiiiinnnzzzZ..."
 
+
 class Zombie{
 
     private:
@@ -20,6 +21,9 @@ class Zombie{
 
 
 Zombie* newZombie(std::string name);
-void randomChump(std::string &name);
+
+//put the zombieHorde on its own .cpp file
+Zombie* zombieHorde(int N, std::string name);
+void randomChump(std::string name);
 
 #endif

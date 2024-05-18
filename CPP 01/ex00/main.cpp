@@ -3,6 +3,8 @@
 
 //Fazer throws que propagam para a main
 //g++ *.cpp *.hpp && valgrind ./a.out
+#include "Zombie.hpp"
+
 int main()
 {
     Zombie *z = newZombie("sebastiao");
@@ -11,4 +13,7 @@ int main()
     else
         z->announce();
     delete z; 
+    randomChump("random zombie");
+
+    
 }

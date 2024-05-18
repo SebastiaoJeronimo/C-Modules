@@ -12,8 +12,6 @@ Contact::Contact(){
 
 Contact::Contact(std::string &first, std::string &last, std::string &nick, 
     std::string &phone,  const std::string &secret){
-
-
        this->firstName = first;
        this->lastName = last;
        this->nickname = nick;

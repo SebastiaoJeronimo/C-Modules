@@ -13,7 +13,5 @@ int main()
     else
         z->announce();
     delete z; 
-    randomChump("random zombie");
-
-    
+    randomChump("random zombie");   
 }

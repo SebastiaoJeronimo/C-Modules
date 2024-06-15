@@ -1,9 +1,7 @@
 #include <string>
 #include <iostream>
 
-/*
 //void functionRvalues(std::string &&str) you can still do something like this for later move semantics
-
 void functionByValue(std::string str)
 {
     std::cout << "Value" << "\n";
@@ -26,7 +24,7 @@ void functionConstReference(const std::string &str)
     std::cout << "this is the name of the passed string " << str << "\n"; 
     std::cout << "this is memory address of the passed string " << &str << "\n"; 
 }
-*/
+
 
 
 //advanced lvalues and rvalues
@@ -37,7 +35,7 @@ void functionConstReference(const std::string &str)
 // https://stackoverflow.com/questions/8627956/ways-of-passing-arguments-value-vs-reference-vs-pointer 
 int main()
 {
-    //g++ *.cpp && valgrind ./a.out
+    //g++ -std=c++98 *.cpp && valgrind ./a.out
 
     //using std::str
     std::string str = "HI THIS IS BRAIN";
@@ -53,12 +51,12 @@ int main()
     std::cout << "The value pointed to by stringPTR " << *stringPTR << "\n";
     std::cout << "The value pointed to by stringREF " << stringREF << "\n";
 
-
     /*
     std::string lvalue = "THIS STRING IS NOT A CONSTANT";
     std::cout << "Memory address of the lvalue string " << &lvalue << "\n";
 
     //----- BY REFERENCE --------------------------
+    //REFERENCES CANNOT BE NULL
     functionReference(lvalue);
     //functionReference("string constant"); //cant pass rvalues if the declaration asks for a reference it will give errors
 

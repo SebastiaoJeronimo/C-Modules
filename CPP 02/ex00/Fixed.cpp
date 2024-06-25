@@ -19,7 +19,6 @@ Fixed::Fixed(Fixed &f)
     //print constructor
     //checkar se esta correto
     //nBits
-
     this->value = f.value;
 }
 

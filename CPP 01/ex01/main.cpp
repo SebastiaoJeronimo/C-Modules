@@ -1,6 +1,5 @@
 #include "Zombie.hpp"
 
-
 //Fazer throws que propagam para a main
 //g++ *.cpp *.hpp && valgrind ./a.out
 int main()
@@ -14,7 +13,7 @@ int main()
         for (int i = 0 ; i < 3 ; i++)
             horde[i].announce();
     else std::cout << "allocation failed" << "\n";
-    delete [] horde;
+    delete [] horde; // the way to delete if there is a collection of zombies
 }
 
 

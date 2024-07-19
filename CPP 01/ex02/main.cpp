@@ -44,7 +44,7 @@ int main()
 
     std::cout << "Memory address of the string variable " << &str << "\n";
     std::cout << "Memory address that the pointer is pointing to " << stringPTR << "\n";
-    std::cout << "Memory adress which the reference is refering to " << &stringREF << "\n";
+    std::cout << "Memory address which the reference is referring to " << &stringREF << "\n";
     //-------------------------------------------------------------------------------
 
     std::cout << "The value of the string variable is " << str << "\n";

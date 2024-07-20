@@ -10,7 +10,6 @@
 
 class Harl{
     private:
-        std::string levels[4];
         //array of pointers to functions without using typedef
         /*
         arr    //arr 
@@ -34,7 +33,7 @@ class Harl{
         (*(*(* arr [3])(int))[4])(double) //to functions taking double and
         char  (*(*(* arr [3])(int))[4])(double) //returning char
         */
-        void (Harl::*functionArray[4])();
+        int  getLevelValue(std::string);
         void debug(void);
         void info(void);
         void warning(void);

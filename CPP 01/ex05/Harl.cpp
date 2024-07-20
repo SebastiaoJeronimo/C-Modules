@@ -1,6 +1,20 @@
 #include "Harl.hpp"
 
-Harl::Harl() : levels{DEBUG, INFO, WARNING, ERROR} , functionArray{&Harl::debug, &Harl::info, &Harl::warning, &Harl::error} {}
+//extended initializer lists are only available on the c++ 11 
+//Harl::Harl() : levels{DEBUG, INFO, WARNING, ERROR} , functionArray{&Harl::debug, &Harl::info, &Harl::warning, &Harl::error} {}
+
+Harl::Harl() {
+    levels[0] = DEBUG;
+    levels[1] = INFO;
+    levels[2] = WARNING;
+    levels[3] = ERROR;
+
+    functionArray[0] = &Harl::debug;
+    functionArray[1] = &Harl::info;
+    functionArray[2] = &Harl::warning;
+    functionArray[3] = &Harl::error;
+}
+
 Harl::~Harl() {}
 
 void Harl::debug( void )
@@ -23,5 +37,6 @@ void Harl::error( void )
 void Harl::complain(std::string level) {
     for (int i = 0 ; i < 4 ; i++)
         if (levels[i] == level)
-            (this->*functionArray[i])(); //have to specify which object youre calling the function on
+            return (this->*functionArray[i])(); //have to specify which object youre calling the function on with this
+    std::cout << "[ Probably complaining about insignificant problems ]" << "\n";
 }

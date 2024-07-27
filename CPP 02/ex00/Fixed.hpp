@@ -6,10 +6,10 @@
 class Fixed
 {
     public: 
-        Fixed();         //Default Constructor
-        Fixed(Fixed &f); //Copy Constructor
-        //copy assigment operator overload //TODO
-        ~Fixed();       //Destructor
+        Fixed();                                    //Default Constructor
+        Fixed(const Fixed &f);                      //Copy Constructor
+        Fixed& operator=(const Fixed& original);    //Copy assignment operator overload
+        ~Fixed();                                   //Destructor
 
         int getRawBits(void) const;
         void setRawBits(int const raw);
@@ -17,6 +17,4 @@ class Fixed
         int value;
         static const int nBits = 8;
 };
-
-
 #endif

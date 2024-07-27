@@ -1,5 +1,6 @@
 #include "Fixed.hpp"
 
+//c++ -std=c++98 *.cpp *.hpp && valgrind ./a.out
 int main( void ) {
     Fixed a;
     Fixed b( a );

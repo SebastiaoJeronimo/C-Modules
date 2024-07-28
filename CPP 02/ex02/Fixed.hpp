@@ -35,8 +35,11 @@ class Fixed
         Fixed & operator/(const Fixed & originalRight);
 
         //increment/decrement operators
-        Fixed & operator++();
-        //TODO
+        Fixed & operator++(int); //postfix ++
+        Fixed & operator++();    //prefix  ++
+        Fixed & operator--(int); //postfix --
+        Fixed & operator--();    //prefix  --
+
     private:
         int value;
         static const int nBits = 8;

@@ -68,6 +68,76 @@ float Fixed::toFloat() const {
     return (((float) this->value) / (powf(2, nBits)));
 }
 
+bool Fixed::operator>(const Fixed & originalRight)  const{
+    return (this->value > originalRight.value);
+}
+
+bool Fixed::operator<(const Fixed & originalRight)  const{
+    return (this->value < originalRight.value);
+}
+
+bool Fixed::operator==(const Fixed & originalRight)  const{
+    return (this->value == originalRight.value);
+}
+
+bool Fixed::operator!=(const Fixed & originalRight)  const{
+    return (this->value != originalRight.value);
+}
+
+bool Fixed::operator>=(const Fixed & originalRight)  const{
+    return (this->value >= originalRight.value);
+}
+
+bool Fixed::operator<=(const Fixed & originalRight)  const{
+    return (this->value <= originalRight.value);
+}
+
+
+//check fixed point operations
+Fixed & Fixed::operator-(const Fixed & originalRight)
+{
+    //assignment operator called returns a object ref 
+    *this = Fixed((this->toFloat() - originalRight.toFloat()));
+    return *this;
+}
+
+Fixed & Fixed::operator+(const Fixed & originalRight)
+{
+    *this = Fixed((this->toFloat() + originalRight.toFloat()));
+    return *this;
+}
+
+Fixed & Fixed::operator*(const Fixed & originalRight)
+{
+    *this = Fixed((this->toFloat() * originalRight.toFloat()));
+    return *this;
+}
+
+Fixed & Fixed::operator/(const Fixed & originalRight)
+{
+    *this = Fixed((this->toFloat() / originalRight.toFloat()));
+    return *this;
+}
+
+//what is the epsilon?
+//its the smallest number that 1 + e > 1
+Fixed & Fixed::operator++(int){
+    // TO DO 
+}
+
+Fixed & Fixed::operator++(){
+    // TO DO 
+}
+
+Fixed & Fixed::operator--(int){
+    // TO DO 
+}
+
+Fixed & Fixed::operator--(){
+    // TO DO 
+}
+
+
 std::ostream & operator<<(std::ostream & out, const Fixed &fixed)
 {
     return (out << fixed.toFloat());
